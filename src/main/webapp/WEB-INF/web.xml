@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+	<display-name>JCacheSample</display-name>
+	<servlet>
+		<description>
+		</description>
+		<display-name>ToDoList</display-name>
+		<servlet-name>ToDoList</servlet-name>
+		<jsp-file>/ToDoList.jsp</jsp-file>
+		<enabled>true</enabled>
+		<async-supported>false</async-supported>
+	</servlet>
+</web-app>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="ToDoList.css">
+		<title>To-Do List</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	</head>
+
+	<body onload="loadData()">
+	
+		<div id="myDIV" class="header">
+			<h2>My To-Do List</h2>
+			<input type="text" id="myInput" placeholder="To Do Item...">
+			<span onclick="insertData()" class="addBtn">Add To List</span>
+		</div>
+	
+		<ul id="myUL">
+		</ul>
+	
+		<span onclick="clearData()" class="button">Clear the list </span>
+		
+		<div id="Progress">
+		  	<div id="label">This is a JCache Client Sample for WXS  on IBM Container Services</div>	
+		</div>	
+		
+		<script type="text/javascript">
+		
+			//Sends request to clear all items in grid 
+			function clearData(){
+				var ajaxRequest;	
+				ajaxRequest=new XMLHttpRequest(); 
+				
+				ajaxRequest.onreadystatechange=function(){
+					if(ajaxRequest.readyState==4){
+						
+						//displays message to user once all items have been removed from grid
+						alert('All items have been removed from eXtreme Scale grid');
+						location.reload();
+					}
+				}
+				ajaxRequest.open("GET","ToDoList.jsp?operation=clear",true);
+				ajaxRequest.send();
+			}
+			
+			//sends request to insert an item into grid 
+			function insertData(){
+				var ajaxRequest;	
+				ajaxRequest=new XMLHttpRequest(); 
+				var value;
+				value=document.getElementById('myInput').value;
+				document.getElementById('myInput').value='';
+				
+				//checks validity of input value 
+				if (value===''){
+					alert("You must write something!");
+				}
+				
+				else{
+					ajaxRequest.onreadystatechange=function(){
+						if(ajaxRequest.readyState==4){
+							
+							//appends new item to the list to be displayed to user
+							var input=document.createElement("li");
+							var t=document.createTextNode(value);
+							input.appendChild(t);
+							document.getElementById("myUL").appendChild(input);
+							
+							//appends 'close button' to new item 
+							var span = document.createElement("SPAN");
+							var txt = document.createTextNode("\u00D7");
+							span.className = "close";
+							span.appendChild(txt);
+							input.appendChild(span);
+							closeTask();
+							displayMessage('New item has been inserted into eXtreme Scale Grid');
+						}
+					}
+					ajaxRequest.open("GET","ToDoList.jsp?operation=insert"+"&value="+value,true);
+					ajaxRequest.send();
+					
+				}
+			}
+			
+			//sends request to retrieve all existing items from grid 
+			function loadData(){
+				var ajaxRequest;	
+				ajaxRequest=new XMLHttpRequest(); 
+				ajaxRequest.onreadystatechange=function(){
+					if(ajaxRequest.readyState==4){
+						var result=JSON.parse(ajaxRequest.response); 
+						var values=result.values;
+						
+						for (item in values){
+							
+							//appends all retrieved items to a list 
+							var input=document.createElement("li");
+							var t=document.createTextNode(values[item].value.toString());
+							input.appendChild(t);
+							
+							//appends 'close button' to each item 
+							var span = document.createElement("SPAN");
+							var txt = document.createTextNode("\u00D7");
+							span.className = "close";
+							span.appendChild(txt);
+							input.appendChild(span);
+							document.getElementById("myUL").appendChild(input);
+							closeTask();
+							displayMessage('All saved items retrieved from eXtreme Scale Grid');
+						}
+					}		
+				}
+				ajaxRequest.open("GET","ToDoList.jsp?operation=loadData",true);
+				ajaxRequest.send();
+			}
+			
+			function displayMessage(message){
+				document.getElementById("label").innerHTML=message;
+			}
+			
+			//makes request to delete item from grid
+			function removeData(task){
+				var ajaxRequest;	
+				ajaxRequest=new XMLHttpRequest(); 
+				
+				ajaxRequest.onreadystatechange=function(){
+					if(ajaxRequest.readyState==4){
+							
+							displayMessage('Deleted item has been removed from eXtreme Scale Grid');
+					}
+				}
+				ajaxRequest.open("GET","ToDoList.jsp?operation=remove"+"&task="+task,true);
+				ajaxRequest.send();
+			}
+			
+			//calls function on the item to be removed when user clicks 'close' button
+			function closeTask(){
+				var close = document.getElementsByClassName("close");
+				var i;
+				for (i = 0; i < close.length; i++) {
+				  close[i].onclick = function() {
+				    var div = this.parentElement;
+				    var lines = div.innerHTML.split("<");
+				    removeData(lines[0]);
+				    div.style.display = "none";
+				  }
+				}
+			}
+			
+			//places check marks when item is clicked 
+			var list = document.querySelector('ul');
+			list.addEventListener('click', function(ev) {
+			  if (ev.target.tagName === 'LI') {
+			    ev.target.classList.toggle('checked');
+			  }
+			}, false);
+		
+		</script>
+	</body>
+</html>
