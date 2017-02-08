@@ -5,6 +5,7 @@ The To-Do List is simple and easy to use, it allows you to add and persist items
 
 # Requirements (UNDER CONSTRUCTION)
 - Websphere eXtreme Scale Liberty Deployment 8.6.1.1 (Download the trial version from: https://www.ibm.com/developerworks/downloads/ws/wsdg/index.html) 
+    - Follow instructions provided to 
 
 - Apache Maven software project management and comprehension tool (Download link: https://maven.apache.org/download.cgi) 
 
@@ -22,7 +23,8 @@ The sample application uses two dependencies:A JSON library and ogclient.jar
 
 - The JSON library is specified as a dependency in the POM file, Maven will take care of the rest including downloading and storing this library in the right location as well as packaging it into a final artifact
 
-- The ogclient.jar is not available in a public Maven repository. You will have to obtain this jar file and add it to your local repository by running the following maven command
+- The ogclient.jar is NOT available in a public Maven repository. You will have to obtain this jar file from https://hub.jazz.net/manage/manager/project/abchow/CachingSamples/overview?utm_source=dw#https://hub.jazz.net/project/abchow/CachingSamples/abchow%2520%257C%2520CachingSamples/_2fYdgJMyEeO3qtc4gZ02Xw/_2fl44JMyEeO3qtc4gZ02Xw/downloads
+    and add it to your local repository by running the following maven command
 
 ```
 $ mvn install:install-file -Dfile=<path-to-ogclient.jar> \
@@ -31,7 +33,7 @@ $ mvn install:install-file -Dfile=<path-to-ogclient.jar> \
     
 (Replace <path-to-orgclient.jar> with a valid path to ogclient.jar)
 ```  
-this dependency has already been added to the POM file, once the dependency is available in your local repository, you can use it without any futher modifications to the POM file. 
+Once the dependency is available in your local repository, you can use it without any futher modifications to the POM file. 
 
 # Building The Application 
 After cloning the project and adding the ogclient.jar file to your local Maven repository, go to the directory where the POM file is located and run this command to build the WAR file 
@@ -72,6 +74,7 @@ Save the file as DataCache-credentials.json
 ```
 cf push <app name> -p JCacheSample.war -b (IN PROGRESS) 
 ``` 
+
 
 # License 
 See LICENSE.txt for license information
