@@ -3,7 +3,7 @@ This Java web application is a 'To-Do List',meant to be a simple demo of how you
 
 The To-Do List is simple and easy to use, it allows you to add and persist items that you need to get done. You can also mark items as completed and delete them from the list. The items are stored in an Websphere eXtreme Scale grid. 
 
-# Requirements
+# Requirements (UNDER CONSTRUCTION)
 - Websphere eXtreme Scale Liberty Deployment 8.6.1.1 (Download the trial version from: https://www.ibm.com/developerworks/downloads/ws/wsdg/index.html) 
 
 - Apache Maven software project management and comprehension tool (Download link: https://maven.apache.org/download.cgi) 
@@ -17,7 +17,7 @@ To get the code, you can just clone the repository
 git clone https://github.com/ibmWebsphereExtremeScale/JCacheSample.git
 ```  
 
-# Dependencies 
+# Dependencies (UNDER CONSTRUCTION)
 The sample application uses two dependencies:A JSON library and ogclient.jar
 
 - The JSON library is specified as a dependency in the POM file, Maven will take care of the rest including downloading and storing this library in the right location as well as packaging it into a final artifact
@@ -25,7 +25,7 @@ The sample application uses two dependencies:A JSON library and ogclient.jar
 - The ogclient.jar is not available in a public Maven repository. You will have to obtain this jar file and add it to your local repository by running the following maven command
 
 ```
-$ mvn install:install-file -Dfile=<path-to-orgclient.jar> \
+$ mvn install:install-file -Dfile=<path-to-ogclient.jar> \
     -DgroupId=com.ogclient -DartifactId=ogclient \
     -Dversion=1.0 -Dpackaging=jar
     
@@ -66,7 +66,7 @@ We will store credentials in a json file. Create a json file that follows this f
 Save the file as DataCache-credentials.json
 ```
 
-# Running The Application (IN PROGRESS) 
+# Running The Application (UNDER CONSTRUCTION) 
  Once you have successfully logged in, let's push the WAR file to your Bluemix account
 
 ```
