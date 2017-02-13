@@ -3,11 +3,14 @@ This Java web application is a 'To-Do List',meant to be a simple demo of how you
 
 The To-Do List is simple and easy to use, it allows you to add and persist items that you need to get done. You can also mark items as completed and delete them from the list. The items are stored in an Websphere eXtreme Scale grid. 
 
-# Requirements (UNDER CONSTRUCTION)
-- Websphere eXtreme Scale Liberty Deployment 8.6.1.1 (Download the trial version from: https://www.ibm.com/developerworks/downloads/ws/wsdg/index.html) 
-    - Follow instructions provided to 
+# Requirements 
+- Websphere eXtreme Scale Liberty Deployment (XSLD) 8.6.1.1 (Download the trial version from: https://www.ibm.com/developerworks/downloads/ws/wsdg/index.html) 
+    - Follow instructions provided to setup your XSLD instance 
+    - JCache is not supported when eXtreme Memory (XM) function is enabled. To Disable XM, use the following instructions:              (https://www.ibm.com/support/knowledgecenter/SSTVLU_8.6.1/com.ibm.websphere.extremescale.doc/rxsUpdateXMSettingTaskCommand.html)
+    - Create a grid on XSLD 
 
 - Apache Maven software project management and comprehension tool (Download link: https://maven.apache.org/download.cgi) 
+   - Installation Instructions: (https://maven.apache.org/install.html)
 
 - JDK (Version as per system requirements specified by Maven)
 
@@ -18,7 +21,7 @@ To get the code, you can just clone the repository
 git clone https://github.com/ibmWebsphereExtremeScale/JCacheSample.git
 ```  
 
-# Dependencies (UNDER CONSTRUCTION)
+# Dependencies
 The sample application uses two dependencies:A JSON library and ogclient.jar
 
 - The JSON library is specified as a dependency in the POM file, Maven will take care of the rest including downloading and storing this library in the right location as well as packaging it into a final artifact
@@ -31,12 +34,12 @@ $ mvn install:install-file -Dfile=<path-to-ogclient.jar> \
     -DgroupId=com.ogclient -DartifactId=ogclient \
     -Dversion=1.0 -Dpackaging=jar
     
-(Replace <path-to-orgclient.jar> with a valid path to ogclient.jar)
+//Replace <path-to-orgclient.jar> with a valid path to ogclient.jar
 ```  
 Once the dependency is available in your local repository, you can use it without any futher modifications to the POM file. 
 
 # Building The Application 
-After cloning the project and adding the ogclient.jar file to your local Maven repository, go to the directory where the POM file is located and run this command to build the WAR file 
+After cloning the project and adding the ogclient.jar file to your local Maven repository, go to the directory where the pom.xml file is located and run this command to build the WAR file 
 
 ```
 mvn clean install
@@ -44,7 +47,7 @@ mvn clean install
 You should be able to access the WAR file build from the 'target' folder 
 
 # Bluemix Setup 
-For the purpose of this tutorial, the application will be run on Bluemix. To run your application on Bluemix, you must sign up for Bluemix and installed the Cloud Foundry command line tool. To sign up for Bluemix, head to https://console.ng.bluemix.net and register.
+For the purpose of this tutorial, the application will be deployed on Bluemix. To run your application on Bluemix, you must sign up for Bluemix and installed the Cloud Foundry command line tool. To sign up for Bluemix, head to https://console.ng.bluemix.net and register.
 
 You can download the Cloud Foundry command line tool by following the steps in https://github.com/cloudfoundry/cli
 
@@ -65,7 +68,14 @@ We will store credentials in a json file. Create a json file that follows this f
    "username":"<username for WXS>",
    "password":"<password for WXS>"}
    
-Save the file as DataCache-credentials.json
+//Save the file as DataCache-credentials.json
+```
+To create a user-provided service on Bluemix with the json file you have created, run the following command: 
+
+```
+cf cups <service-name> -p <path to/DataCache-credentials.json file>
+
+//Replace <service-name> with any name of your choosing
 ```
 
 # Running The Application (UNDER CONSTRUCTION) 
