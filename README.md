@@ -79,10 +79,22 @@ cf cups <service-name> -p <path to/DataCache-credentials.json file>
 ```
 
 # Running The Application (UNDER CONSTRUCTION) 
- Once you have successfully logged in, let's push the WAR file to your Bluemix account
+ Once you have successfully logged in, let's push the WAR file to your Bluemix account with a Java Buildpack
 
 ```
-cf push <app name> -p JCacheSample.war -b (IN PROGRESS) 
+cf push <app name> -p JCacheSample.war -b https://github.com/cloudfoundry/java-buildpack
+``` 
+
+Next, bind the application to the user-provided service created 
+
+```
+cf bind-service <app name> <service name>
+``` 
+
+Restage the application so changes made will take effect 
+
+```
+cf restage <app name>
 ``` 
 
 
