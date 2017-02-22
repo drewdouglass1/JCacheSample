@@ -68,14 +68,15 @@ We will store credentials in a json file. Create a json file that follows this f
    "username":"<username for WXS>",
    "password":"<password for WXS>"}
    
-//Save the file as DataCache-credentials.json
+//Save the file as credentials.json
 ```
 To create a user-provided service on Bluemix with the json file you have created, run the following command: 
 
 ```
-cf cups <service-name> -p <path to/DataCache-credentials.json file>
+cf cups <service-name> -p <path to/credentials.json file>
 
 //Replace <service-name> with any name of your choosing
+***Note:Service name needs to have 'DataCache' as the prefix.For example:DataCache-credentials***
 ```
 
 # Running The Application (UNDER CONSTRUCTION) 
