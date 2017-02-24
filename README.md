@@ -81,7 +81,7 @@ To create a user-provided service on Bluemix with the json file you have created
 cf cups <service-name> -p <path to/credentials.json file>
 
 //Replace <service-name> with any name of your choosing
-***Note:Service name needs to have 'WSSimple' as the prefix.For example:WSSimple-credentials***
+***Note:Service name needs to have 'XSSimple' as the prefix.For example:XSSimple-credentials***
 ```
 
 # Running The Application (UNDER CONSTRUCTION) 
