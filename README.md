@@ -14,17 +14,21 @@ The To-Do List is simple and easy to use, it allows you to add and persist items
 
 - JDK (Version as per system requirements specified by Maven)
 
+- Git 
+    - Installation: Visit https://git-scm.com/downloads
+
 # Getting The Code 
 To get the code, you can just clone the repository
 
 ```
 git clone https://github.com/ibmWebsphereExtremeScale/JCacheSample.git
 ```  
+For more information on cloning a remote repository, visit: https://help.github.com/articles/cloning-a-repository/
 
 # Dependencies
-The sample application uses two dependencies:A JSON library and ogclient.jar
+The sample application uses two dependencies: A JSON library and ogclient.jar
 
-- The JSON library is specified as a dependency in the POM file, Maven will take care of the rest including downloading and storing this library in the right location as well as packaging it into a final artifact
+- The JSON library is specified as a dependency in the POM file, Maven will take care of the rest, this includes downloading and storing this library in the right location and packaging it into a final artifact
 
 - The ogclient.jar is NOT available in a public Maven repository. You will have to obtain this jar file from https://hub.jazz.net/manage/manager/project/abchow/CachingSamples/overview?utm_source=dw#https://hub.jazz.net/project/abchow/CachingSamples/abchow%2520%257C%2520CachingSamples/_2fYdgJMyEeO3qtc4gZ02Xw/_2fl44JMyEeO3qtc4gZ02Xw/downloads
     and add it to your local repository by running the following maven command
@@ -60,7 +64,7 @@ This will prompt you to login with your Bluemix ID and password.
 # Providing Credentials
 This application uses a Bluemix user-provided service instance to provide credentials to connect to Websphere eXtreme Scale. For more information visit https://console.ng.bluemix.net/docs/services/reqnsi.html#add_service
 
-We will store credentials in a json file. Create a json file that follows this format (replace with valid credentials) : 
+We will store credentials in a json file. Create a json file that follows this format. Replace with valid credentials, making sure that you specify all catalog end points(CEPs), seperated by a comma: 
 
 ```
   {"catalogEndPoint":"<catalog server endpoint:port, eg: 129.11.111.111:4809,129.22.222.222:4809>",
@@ -76,7 +80,7 @@ To create a user-provided service on Bluemix with the json file you have created
 cf cups <service-name> -p <path to/credentials.json file>
 
 //Replace <service-name> with any name of your choosing
-***Note:Service name needs to have 'DataCache' as the prefix.For example:DataCache-credentials***
+***Note:Service name needs to have 'WSSimple' as the prefix.For example:WSSimple-credentials***
 ```
 
 # Running The Application (UNDER CONSTRUCTION) 
