@@ -6,16 +6,17 @@ The To-Do List is simple and easy to use, it allows you to add and persist items
 # Requirements 
 - Websphere eXtreme Scale Liberty Deployment (XSLD) 8.6.1.1 (Download the trial version from: https://www.ibm.com/developerworks/downloads/ws/wsdg/index.html) 
     - Follow instructions provided to setup your XSLD instance 
-    - JCache is not supported when eXtreme Memory (XM) function is enabled. To Disable XM, use the following instructions:              (https://www.ibm.com/support/knowledgecenter/SSTVLU_8.6.1/com.ibm.websphere.extremescale.doc/rxsUpdateXMSettingTaskCommand.html)
+    - JCache is not supported when eXtreme Memory (XM) function is enabled. To Disable XM, use the following instructions:                    (https://www.ibm.com/support/knowledgecenter/SSTVLU_8.6.1/com.ibm.websphere.extremescale.doc/rxsUpdateXMSettingTaskCommand.html)
     - Create a grid on XSLD 
 
-- Apache Maven software project management and comprehension tool (Download link: https://maven.apache.org/download.cgi) 
-   - Installation Instructions: (https://maven.apache.org/install.html)
+- Apache Maven software project management and comprehension tool
+   - Download link: https://maven.apache.org/download.cgi
+   - Installation Instructions: https://maven.apache.org/install.html
 
 - JDK (Version as per system requirements specified by Maven)
 
 - Git 
-    - Installation: Visit https://git-scm.com/downloads
+    - Download Link: https://git-scm.com/downloads
 
 # Getting The Code 
 To get the code, you can just clone the repository
