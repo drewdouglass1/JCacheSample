@@ -27,6 +27,7 @@ String gridName=null;
 String hostName=null;
 String username=null;
 String password=null;
+String operation="operation";
 
 CachingProvider cachingProvider;
 CacheManager cacheManager; 
@@ -113,7 +114,8 @@ public void jspInit() {
 		response.setCharacterEncoding("UTF-8");
 		
 		//receive 'operation' parameter from request
-		String operation=request.getParameter("operation"); 
+		operation=request.getParameter("operation"); 
+
 		
 		//insert item into the grid using JCache API
 		if ("insert".equals(operation)){
@@ -149,7 +151,8 @@ public void jspInit() {
 		}
 		
 	}catch (Exception e){
-		System.out.println("Failed to perform operation on map");
+		System.out.println("Failed to perform " + operation + " on " + gridName + " Application may have failed to connect to the grid");
+		response.getWriter().write("Failed");
 		e.printStackTrace();
 	}
 %>
