@@ -32,9 +32,9 @@ The sample application uses two dependencies: A JSON library and ogclient.jar
 - The JSON library is specified as a dependency in the POM file, Maven will take care of the rest, this includes downloading and storing this library in the right location and packaging it into a final artifact
 
 - The ogclient.jar is NOT available in a public Maven repository. If you are using the Java buildpack to deploy the app, you have to follow these two steps: 
-    1. Edit the POM.xml file, uncomment the following block of code 
+    a) Edit the POM.xml file, uncomment the following block of code 
     ```
-    	<!--
+    <!--
 	<dependency>
 		<groupId>com.ogclient</groupId>
 		<artifactId>ogclient</artifactId>
@@ -44,7 +44,7 @@ The sample application uses two dependencies: A JSON library and ogclient.jar
     
     //To uncomment, remove '<!--' at the beginning and '-->' at the end of the block of code
     ```
-    2. Download ogclient.jar from https://hub.jazz.net/manage/manager/project/abchow/CachingSamples/overview?       utm_source=dw#https://hub.jazz.net/project/abchow/CachingSamples/abchow%2520%257C%2520CachingSamples/_2fYdgJMyEeO3qtc4gZ02Xw/_2fl44JMyE eO3qtc4gZ02Xw/downloads
+    b) Download ogclient.jar from https://hub.jazz.net/manage/manager/project/abchow/CachingSamples/overview?       utm_source=dw#https://hub.jazz.net/project/abchow/CachingSamples/abchow%2520%257C%2520CachingSamples/_2fYdgJMyEeO3qtc4gZ02Xw/_2fl44JMyE eO3qtc4gZ02Xw/downloads
     and add it to your local repository by running the following maven command
 
     ```
