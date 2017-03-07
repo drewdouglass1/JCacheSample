@@ -151,7 +151,7 @@ public void jspInit() {
 		}
 		
 	}catch (Exception e){
-		System.out.println("Failed to perform " + operation + " on " + gridName + " Application may have failed to connect to the grid");
+		System.out.println("Failed to perform " + operation + " on " + gridName + " .Application may have failed to connect to the grid");
 		response.getWriter().write("Failed");
 		e.printStackTrace();
 	}
