@@ -31,7 +31,7 @@ The sample application uses two dependencies: A JSON library and ogclient.jar
 
 - The JSON library is specified as a dependency in the POM file, Maven will take care of the rest, this includes downloading and storing this library in the right location and packaging it into a final artifact
 
-- The ogclient.jar is NOT available in a public Maven repository. If you are using the Java buildpack to deploy the app, you have to follow these two steps: 
+- The ogclient.jar is NOT available in a public Maven repository. If you are using the Liberty buildpack to deploy the app, you can skip these two steps (NOTE: This tutorial uses the Liberty Buildpack). Else:  
     a) Edit the POM.xml file, uncomment the following block of code 
     ```
     <!--
@@ -101,11 +101,11 @@ cf cups <service-name> -p <path to/credentials.json file>
 //Replace <service-name> with any name of your choosing but service name must have 'XSSimple' as the prefix. For example:XSSimple-credentials***
 ```
 
-# Running The Application (UNDER CONSTRUCTION) 
- Once you have successfully logged in, let's push the WAR file to your Bluemix account with a Java Buildpack
+# Running The Application 
+ Once you have successfully logged in, let's push the WAR file to your Bluemix account with the Liberty Buildpack (by default)
 
 ```
-cf push <app name> -p JCacheSample.war -b https://github.com/cloudfoundry/java-buildpack
+cf push <app name> -p JCacheSample.war
 ``` 
 
 Next, bind the application to the user-provided service created 
