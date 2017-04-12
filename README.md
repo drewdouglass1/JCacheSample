@@ -8,25 +8,25 @@ The To-Do List is simple and easy to use, it allows you to add and persist items
     - For documentation on setting up ibm-websphere-extreme-scale image for Bluemix, visit:  https://console.ng.bluemix.net/docs/images/docker_image_extreme_scale/ibm-websphere-extreme-scale_starter.html
     
     - JCache is not supported when eXtreme Memory (XM) function is enabled. To Disable XM, use the two step instructions below:
-    a) Access the eXtreme Scale Swagger REST API when eXtreme Scale is deployed in ICS
-  	1) Retrieve the host name of the container you plan to use to connect to the REST API
+    1) Access the eXtreme Scale Swagger REST API when eXtreme Scale is deployed in ICS
+    		a) Retrieve the host name of the container you plan to use to connect to the REST API
 		
-		a.Connect to the container:
-		```
-		cf ic exec -it container_name bash
-		```
-		b.List the host name:
-		```
-		hostname
-		```
-	2) Retrieve the public IP of the same container (if the container does not have a public IP, follow the steps in the “Getting 		started” section to provide it one via the Bluemix console or command line)
-	3) Create a new entry in your local client machine’s hosts file that will map the public IP and hostname of the container 	   together. It will look something like this:
-		a.169.44.8.87	instance-05106102
-	4)Access the Swagger REST API’s as follows:
-	a.For CRUD operations: https://hostname:9444/ibm/api/explorer
-	b.For admin operations: https://hostname:9445/ibm/api/explorer
+			a.Connect to the container:
+			```
+			cf ic exec -it container_name bash
+			```
+			b.List the host name:
+			```
+			hostname
+			```
+		b) Retrieve the public IP of the same container (if the container does not have a public IP, follow the steps in the 			“Getting started” section to provide it one via the Bluemix console or command line)
+		c) Create a new entry in your local client machine’s hosts file that will map the public IP and hostname of the 		   container together. It will look something like this:
+			a.169.44.8.87	instance-05106102
+		d) Access the Swagger REST API’s as follows:
+			a.For CRUD operations: https://hostname:9444/ibm/api/explorer
+			b.For admin operations: https://hostname:9445/ibm/api/explorer
 
-  b) Follow instructions on this link to disable eXtreme Memory (XM) using the REST API 
+  2) Follow instructions on this link to disable eXtreme Memory (XM) using the REST API 
     https://www.ibm.com/support/knowledgecenter/SSTVLU_8.6.1/com.ibm.websphere.extremescale.doc/rxsUpdateXMSettingTaskCommand.html
    
    - Create a grid of type Simple on WebSphere eXtreme Scale 
