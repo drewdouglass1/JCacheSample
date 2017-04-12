@@ -27,11 +27,7 @@ The To-Do List is simple and easy to use, it allows you to add and persist items
 		169.44.8.87	instance-05106102
 		```
 		
-		e) Follow instructions on this link to disable eXtreme Memory (XM) using the REST API  	
-		
-		```
-(https://www.ibm.com/support/knowledgecenter/SSTVLU_8.6.1/com.ibm.websphere.extremescale.doc/rxsUpdateXMSettingTaskCommand.html)
-		```
+		e) Follow instructions on this link to disable eXtreme Memory (XM) using the REST API: (https://www.ibm.com/support/knowledgecenter/SSTVLU_8.6.1/com.ibm.websphere.extremescale.doc/rxsUpdateXMSettingTaskCommand.html)
 
    - Create a grid of type Simple on WebSphere eXtreme Scale 
 
