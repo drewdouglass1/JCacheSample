@@ -3,6 +3,8 @@ This Java web application is a 'To-Do List', meant to be a simple demo of how yo
 
 The To-Do List is simple and easy to use, it allows you to add and persist items that you need to complete. You can also mark items as completed and delete them from the list. The items are stored in a simple Websphere eXtreme Scale grid. 
 
+There is a step by step Youtube tutorial available to help users build and deploy this application: https://www.youtube.com/watch?v=-20qio-DqEU&feature=youtu.be
+
 # Requirements 
 - Websphere eXtreme Scale (ibm-websphere-extreme-scale) image on IBM Bluemix Container Services will be used for the To-Do List
     - For documentation on setting up ibm-websphere-extreme-scale image for Bluemix, visit:  https://console.ng.bluemix.net/docs/images/docker_image_extreme_scale/ibm-websphere-extreme-scale_starter.html
